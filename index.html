@@ -40,7 +40,7 @@
         #sparkle-container {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; /* CORRECCIÓN: Evita que bloquee los clics */
+            pointer-events: none;
             z-index: 1;
             overflow: hidden;
         }
@@ -101,7 +101,7 @@
             background-size: cover;
             z-index: 1000; display: flex; flex-direction: column; justify-content: center; align-items: center;
             transition: opacity 1.2s ease-in-out, visibility 1.2s;
-            cursor: pointer; /* Hace que toda la pantalla indique que es clickeable */
+            cursor: pointer;
         }
 
         #envelope-screen.fade-out {
@@ -446,7 +446,7 @@
         <svg id="music-icon-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
 
-    <!-- PANTALLA INICIAL DEL SOBRE (Ahora toda la pantalla es clickeable) -->
+    <!-- PANTALLA INICIAL DEL SOBRE -->
     <div id="envelope-screen" onclick="openEnvelope()">
         <div id="sparkle-container"></div>
 
@@ -458,7 +458,10 @@
         <div class="envelope-wrapper">
             <div class="front-flap"></div>
             <div class="wax-seal">
-                <svg viewBox="0 0 24 24"><path d="M12 2L15 9H22L16.5 13.5L18.5 21L12 17L5.5 21L7.5 13.5L2 9H9L12 2Z"/></svg>
+                <!-- Icono de Abejita -->
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2c-1.1 0-2 .9-2 2 0 1.25 1.5 3 2 4 .5-1 2-2.75 2-4 0-1.1-.9-2-2-2zM4.5 9A3.5 3.5 0 0 0 1 12.5 3.5 3.5 0 0 0 4.5 16h2v3c0 1.1.9 2 2 2h7c1.1 0 2-.9 2-2v-3h2a3.5 3.5 0 0 0 3.5-3.5A3.5 3.5 0 0 0 19.5 9h-15zm4 1h7v2h-7v-2zm0 3h7v2h-7v-2z"/>
+                </svg>
             </div>
             <div class="envelope"></div>
         </div>
@@ -469,7 +472,7 @@
     <!-- CONTENIDO PRINCIPAL -->
     <main id="main-invitation">
         
-        <!-- Portada (Mensaje Inicial) + FOTO 1 -->
+        <!-- Portada (Mensaje Inicial) + FOTO 2 (Intercambiada) -->
         <section class="section-block bg-white">
             <div class="deco-wrapper anim-element anim-zoom delay-1" style="top: 10%; left: -30px; transform: rotate(15deg);">
                 <img src="assets/i1.png" class="float-img" style="animation-delay: 0s;" alt="">
@@ -485,13 +488,13 @@
                 "Señor hoy me presentan ante ti para ser bañado con la gracia de tu amor, toma mi pequeño corazón entre tus benditas manos y jamás te separes de mi."
             </p>
 
-            <!-- Foto 1 -->
-            <div class="anim-element anim-fade-up delay-5 photo-frame" onclick="openLightbox('assets/1.jpg')">
-                <img src="assets/1.jpg" alt="Daniel Emiliano" onerror="this.style.display='none'">
+            <!-- Foto 2 (Ahora al inicio) -->
+            <div class="anim-element anim-fade-up delay-5 photo-frame" onclick="openLightbox('assets/2.jpg')">
+                <img src="assets/2.jpg" alt="Daniel Emiliano de Bebé" onerror="this.style.display='none'">
             </div>
         </section>
 
-        <!-- Familia y Padrinos + FOTO 2 -->
+        <!-- Familia y Padrinos + FOTO 1 (Intercambiada) -->
         <section class="section-block bg-blue">
             <div class="deco-wrapper anim-element anim-zoom delay-1" style="top: 20%; right: -20px; transform: rotate(10deg);">
                 <img src="assets/i3.png" class="float-img" style="animation-delay: 0.5s;" alt="">
@@ -509,9 +512,9 @@
             <div class="anim-element anim-fade-up delay-5" style="font-family: 'Cinzel', serif; font-size: 20px; color: var(--accent-gold); margin: 15px 0;">&</div>
             <div class="anim-element anim-fade-up delay-5 info-data" style="font-size: 30px;">Erick Ramos López</div>
 
-            <!-- Foto 2 -->
-            <div class="anim-element anim-fade-up delay-5 photo-frame" onclick="openLightbox('assets/2.jpg')">
-                <img src="assets/2.jpg" alt="Familia" onerror="this.style.display='none'">
+            <!-- Foto 1 (Ahora después de familia) -->
+            <div class="anim-element anim-fade-up delay-5 photo-frame" onclick="openLightbox('assets/1.jpg')">
+                <img src="assets/1.jpg" alt="Familia" onerror="this.style.display='none'">
             </div>
         </section>
 
@@ -547,7 +550,7 @@
             <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Bautizo+de+Daniel+Emiliano&dates=20261213T184500Z/20261214T020000Z&details=Celebremos+juntos+este+d%C3%ADa+tan+especial" target="_blank" class="anim-element anim-fade-up delay-5 btn-solid">Agendar Evento</a>
         </section>
 
-        <!-- Ubicaciones + FOTO 3 -->
+        <!-- Ubicaciones + FOTOS EXTRA -->
         <section class="section-block bg-white">
             <div class="deco-wrapper anim-element anim-zoom delay-1" style="top: 5%; left: -25px; transform: rotate(25deg);">
                 <img src="assets/i1.png" class="float-img" style="animation-delay: 0.2s;" alt="">
@@ -564,7 +567,12 @@
             <div class="anim-element anim-zoom delay-4 map-box">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4094.0687090788533!2d-99.1933944!3d19.301378600000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cdffd9d9afd785%3A0x3e2d017c1cb488c6!2sParroquia%20de%20La%20Esperanza%20de%20Mar%C3%ADa%20en%20la%20Resurrecci%C3%B3n%20del%20Se%C3%B1or!5e1!3m2!1ses-419!2smx!4v1791597846447!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
-            <a href="https://maps.app.goo.gl/WGGdtyrBbEMzB8519?g_st=ic" target="_blank" class="anim-element anim-fade-up delay-5 btn-solid">Ver Ubicación</a>
+            <a href="https://www.google.com/maps/place/Parroquia+de+La+Esperanza+de+María+en+la+Resurrección+del+Señor" target="_blank" class="anim-element anim-fade-up delay-5 btn-solid">Ver Ubicación</a>
+
+            <!-- Foto Parroquia -->
+            <div class="anim-element anim-fade-up delay-5 photo-frame" style="margin-top: 40px;" onclick="openLightbox('assets/ceremonia.jpg')">
+                <img src="assets/ceremonia.jpg" alt="Ceremonia" onerror="this.style.display='none'">
+            </div>
 
             <div class="anim-element anim-zoom line-horizontal" style="margin: 60px auto;"></div>
 
@@ -576,10 +584,15 @@
             <div class="anim-element anim-zoom delay-4 map-box">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4094.957838334284!2d-99.176208!3d19.2658176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce0095c37a73f5%3A0xa992c459d9d81666!2sCortijo%20Santa%20Teresa%2C%20Eventos%20Sociales!5e1!3m2!1ses-419!2smx!4v1791597896513!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
-            <a href="https://maps.app.goo.gl/QLZPjvp1fQ3Aickk8?g_st=ic" target="_blank" class="anim-element anim-fade-up delay-5 btn-solid">Ver Ubicación</a>
+            <a href="https://www.google.com/maps/place/Cortijo+Santa+Teresa,+Eventos+Sociales" target="_blank" class="anim-element anim-fade-up delay-5 btn-solid">Ver Ubicación</a>
+
+            <!-- Foto Recepcion -->
+            <div class="anim-element anim-fade-up delay-5 photo-frame" style="margin-top: 40px;" onclick="openLightbox('assets/recepcion.jpg')">
+                <img src="assets/recepcion.jpg" alt="Recepción" onerror="this.style.display='none'">
+            </div>
 
             <!-- Foto 3 -->
-            <div class="anim-element anim-fade-up delay-5 photo-frame" style="margin-top: 60px;" onclick="openLightbox('assets/3.jpg')">
+            <div class="anim-element anim-fade-up delay-5 photo-frame" style="margin-top: 40px;" onclick="openLightbox('assets/3.jpg')">
                 <img src="assets/3.jpg" alt="Lugar" onerror="this.style.display='none'">
             </div>
         </section>
@@ -597,32 +610,32 @@
                 <div class="tl-item">
                     <div class="tl-dot"></div>
                     <div class="tl-time">1:00 p.m.</div>
-                    <div class="tl-event">Misa</div>
+                    <div class="tl-event">Misa ⛪️</div>
                 </div>
                 <div class="tl-item">
                     <div class="tl-dot"></div>
                     <div class="tl-time">2:30 p.m.</div>
-                    <div class="tl-event">Cocktail de Recepción</div>
+                    <div class="tl-event">Cocktail de Recepción 🥂</div>
                 </div>
                 <div class="tl-item">
                     <div class="tl-dot"></div>
                     <div class="tl-time">3:30 p.m.</div>
-                    <div class="tl-event">Comida</div>
+                    <div class="tl-event">Comida 🍽️</div>
                 </div>
                 <div class="tl-item">
                     <div class="tl-dot"></div>
                     <div class="tl-time">5:00 p.m.</div>
-                    <div class="tl-event">Sorpresa</div>
+                    <div class="tl-event">Sorpresa 🎁</div>
                 </div>
                 <div class="tl-item">
                     <div class="tl-dot"></div>
                     <div class="tl-time">6:30 p.m.</div>
-                    <div class="tl-event">Tarta y Postres</div>
+                    <div class="tl-event">Tarta y Postres 🍰</div>
                 </div>
                 <div class="tl-item">
                     <div class="tl-dot"></div>
                     <div class="tl-time">7:00 p.m.</div>
-                    <div class="tl-event">Fiesta</div>
+                    <div class="tl-event">Fiesta 🎉</div>
                 </div>
             </div>
         </section>
@@ -635,11 +648,13 @@
 
             <div class="anim-element anim-fade-up delay-1 info-title">Dress Code</div>
             <div class="anim-element anim-fade-up delay-2 info-data" style="font-family: 'Cinzel', serif; font-size: 35px; margin: 25px 0; letter-spacing: 3px; color: var(--accent-blue);">
-                CASUAL
+                SEMI-FORMAL
             </div>
             <div class="anim-element anim-fade-up delay-3 line-divider"></div>
             <p class="anim-element anim-fade-up delay-4 body-serif" style="color: var(--text-dark); font-size: 21px;">
                 Se sugiere vestir en hermosos <strong>colores pastel</strong> para acompañar la temática del evento.
+                <br><br>
+                Les sugerimos considerar el uso de prendas de abrigo para el descenso de temperatura por la tarde/noche. ¡Queremos que disfruten sin frío!
             </p>
         </section>
 
@@ -738,7 +753,7 @@
             <div class="anim-element anim-fade-up delay-1 info-title">RSVP</div>
             <div class="anim-element anim-fade-up delay-2 info-data" style="font-size: 34px;">Confirmar Asistencia</div>
             <p class="anim-element anim-fade-up delay-3 body-serif" style="margin: 15px auto 35px auto; font-size: 20px;">
-                Agradeceremos tu confirmación lo antes posible.
+                Agradecemos confirmar su asistencia antes del 1º de diciembre.
             </p>
             
             <div class="anim-element anim-fade-up delay-4 form-group">
@@ -824,7 +839,7 @@
             document.getElementById('lightbox').classList.remove('active');
             setTimeout(() => {
                 document.getElementById('lightbox-img').src = '';
-            }, 400); // Espera a que termine la transición de opacidad
+            }, 400); 
         }
 
         // --- GENERADOR DE CHISPAS MÁGICAS ---
@@ -854,7 +869,7 @@
         // --- ANIMACIÓN INICIAL DEL SOBRE ---
         let isEnvelopeOpened = false;
         function openEnvelope() {
-            if (isEnvelopeOpened) return; // Previene doble clic
+            if (isEnvelopeOpened) return; 
             isEnvelopeOpened = true;
 
             const wrapper = document.querySelector('.envelope-wrapper');
@@ -865,7 +880,6 @@
                 screen.classList.add('fade-out');
                 document.body.classList.add('content-active');
                 
-                // Intento seguro de reproducción de audio
                 try {
                     const playPromise = bgMusic.play();
                     if (playPromise !== undefined) {
@@ -899,7 +913,6 @@
                     if (entry.isIntersecting) {
                         entry.target.classList.add('in-view');
                     } else {
-                        // Hace que la animación se reinicie si el elemento sale y vuelve a entrar
                         entry.target.classList.remove('in-view');
                     }
                 });
