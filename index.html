@@ -7,10 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Pinyon+Script&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Paleta Pastel Mágica (Winnie Pooh vibes) */
-            --bg-blue-pastel: rgba(225, 240, 248, 0.92);  
-            --bg-yellow-pastel: rgba(253, 248, 222, 0.92);
-            --bg-white-translucent: rgba(255, 255, 255, 0.88);
+            /* Paleta Pastel Mágica (Winnie Pooh vibes) con mayor transparencia para lucir el fondo */
+            --bg-blue-pastel: rgba(225, 240, 248, 0.75);  
+            --bg-yellow-pastel: rgba(253, 248, 222, 0.75);
+            --bg-white-translucent: rgba(255, 255, 255, 0.70);
             
             --text-dark: #2C3E50;      
             --text-muted: #5D6D7E;
@@ -132,14 +132,14 @@
 
         .envelope::before {
             content: ''; position: absolute; top: 0; right: 0;
-            border-right: 160px solid var(--bg-yellow-pastel); border-top: 105px solid transparent;
-            border-bottom: 105px solid var(--bg-yellow-pastel); z-index: 2; opacity: 0.9;
+            border-right: 160px solid rgba(253, 248, 222, 0.95); border-top: 105px solid transparent;
+            border-bottom: 105px solid rgba(253, 248, 222, 0.95); z-index: 2;
         }
         
         .envelope::after {
             content: ''; position: absolute; top: 0; left: 0;
-            border-left: 160px solid var(--bg-blue-pastel); border-top: 105px solid transparent;
-            border-bottom: 105px solid var(--bg-blue-pastel); z-index: 2; opacity: 0.9;
+            border-left: 160px solid rgba(225, 240, 248, 0.95); border-top: 105px solid transparent;
+            border-bottom: 105px solid rgba(225, 240, 248, 0.95); z-index: 2;
         }
 
         .front-flap {
@@ -177,8 +177,12 @@
         #main-invitation {
             display: none; width: 100%; flex-direction: column; align-items: center;
             opacity: 0; animation: fadeInMain 2s forwards 0.3s;
-            background: url('assets/f2.jpg') no-repeat center center fixed;
-            background-size: cover;
+            /* Se ajustó para conservar proporciones y repetirse si la pantalla es muy alta */
+            background-image: url('assets/f2.jpg');
+            background-size: 100% auto;
+            background-repeat: repeat;
+            background-attachment: fixed;
+            background-position: top center;
         }
         body.content-active #main-invitation { display: flex; }
         @keyframes fadeInMain { to { opacity: 1; } }
@@ -263,7 +267,7 @@
             display: flex; gap: 15px; justify-content: center; margin: 30px auto;
         }
         .cd-box {
-            background: #fff; border: 1px solid rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.9); border: 1px solid rgba(0,0,0,0.05);
             width: 75px; height: 85px; display: flex; flex-direction: column; justify-content: center; align-items: center;
             border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
             font-family: 'Montserrat', sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);
@@ -305,7 +309,7 @@
         /* Calendario */
         .calendar-wrapper {
             width: 100%; max-width: 340px; margin: 40px auto; padding: 35px 25px;
-            background: #fff; border-radius: 8px; box-shadow: 0 15px 45px rgba(0,0,0,0.08);
+            background: rgba(255, 255, 255, 0.95); border-radius: 8px; box-shadow: 0 15px 45px rgba(0,0,0,0.08);
             box-sizing: border-box; position: relative; z-index: 2;
         }
         .calendar-month {
@@ -336,13 +340,13 @@
             text-align: center; transition: border-color 0.4s;
         }
         .input-line:focus { border-bottom-color: var(--accent-gold); }
-        .input-line::placeholder { color: #888; font-style: normal; }
+        .input-line::placeholder { color: #555; font-style: normal; }
         textarea.input-line { resize: vertical; min-height: 90px; }
         select.input-line { appearance: none; text-align-last: center; cursor: pointer; }
 
         /* Boleto Pase */
         .ticket-card {
-            width: 100%; max-width: 380px; margin: 30px auto; background-color: #fff;
+            width: 100%; max-width: 380px; margin: 30px auto; background-color: rgba(255, 255, 255, 0.95);
             padding: 50px 25px; position: relative; text-align: center;
             border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); z-index: 2;
         }
@@ -381,7 +385,7 @@
         <svg id="music-icon-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
 
-    <!-- PANTALLA INICIAL DEL SOBRE (Con chispas mágicas) -->
+    <!-- PANTALLA INICIAL DEL SOBRE -->
     <div id="envelope-screen">
         <div id="sparkle-container"></div>
 
@@ -560,7 +564,7 @@
                 El obsequio más hermoso es tu presencia. Si deseas tener un detalle adicional con Daniel Emiliano, ponemos a tu disposición nuestra mesa de regalos en Liverpool o, si lo prefieres, habrá un buzón para lluvia de sobres el día del evento.
             </p>
 
-            <div class="anim-element anim-fade-up delay-4" style="margin-top: 30px; font-family: 'Montserrat', sans-serif; font-size: 15px; color: var(--text-dark); border: 1px solid rgba(0,0,0,0.05); padding: 30px; border-radius: 8px; background: #fff; max-width: 400px; width: 100%; position: relative; z-index: 2; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+            <div class="anim-element anim-fade-up delay-4" style="margin-top: 30px; font-family: 'Montserrat', sans-serif; font-size: 15px; color: var(--text-dark); border: 1px solid rgba(0,0,0,0.05); padding: 30px; border-radius: 8px; background: rgba(255,255,255,0.9); max-width: 400px; width: 100%; position: relative; z-index: 2; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
                 <div style="margin-bottom: 15px; text-transform: uppercase; font-size: 13px; color: var(--text-muted); letter-spacing: 2px;">Número de Evento</div>
                 <div style="margin-bottom: 25px; font-size: 18px; font-weight: 600; color: var(--accent-blue);">60049637</div>
                 
