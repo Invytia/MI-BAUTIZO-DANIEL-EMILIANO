@@ -177,7 +177,6 @@
         #main-invitation {
             display: none; width: 100%; flex-direction: column; align-items: center;
             opacity: 0; animation: fadeInMain 2s forwards 0.3s;
-            /* F2 Aplicado como fondo fijo en el main */
             background: url('assets/f2.jpg') no-repeat center center fixed;
             background-size: cover;
         }
@@ -194,7 +193,6 @@
         .anim-fade-up { transform: translateY(50px) scale(0.95); }
         .anim-zoom { transform: scale(0.85); opacity: 0; }
         
-        /* Cuando entran en vista */
         .in-view { opacity: 1 !important; transform: translateY(0) scale(1) !important; }
 
         .delay-1 { transition-delay: 0.1s; }
@@ -208,10 +206,15 @@
             position: relative; overflow: hidden;
         }
 
-        /* Fondos translúcidos para dejar ver f2.jpg */
         .bg-blue { background-color: var(--bg-blue-pastel); }
         .bg-yellow { background-color: var(--bg-yellow-pastel); }
         .bg-white { background-color: var(--bg-white-translucent); }
+
+        /* --- ICONOS DECORATIVOS --- */
+        .deco-icon {
+            position: absolute; pointer-events: none; z-index: 0; opacity: 0.85; max-width: 140px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
+        }
 
         /* Tipografía */
         .tag-line {
@@ -363,6 +366,7 @@
             .countdown-container { gap: 10px; }
             .cd-box { width: 65px; height: 75px; }
             .cd-number { font-size: 26px; }
+            .deco-icon { max-width: 90px; }
         }
     </style>
 </head>
@@ -379,7 +383,6 @@
 
     <!-- PANTALLA INICIAL DEL SOBRE (Con chispas mágicas) -->
     <div id="envelope-screen">
-        <!-- Chispas generadas dinámicamente en JS -->
         <div id="sparkle-container"></div>
 
         <div class="envelope-text-container">
@@ -403,6 +406,9 @@
         
         <!-- Portada (Mensaje Inicial) -->
         <section class="section-block bg-white">
+            <img src="assets/i1.png" class="deco-icon anim-element anim-zoom delay-1" style="top: 10%; left: -30px; transform: rotate(15deg);" alt="">
+            <img src="assets/i2.png" class="deco-icon anim-element anim-zoom delay-4" style="bottom: 10%; right: -25px; transform: rotate(-15deg);" alt="">
+
             <div class="anim-element anim-fade-up delay-1 tag-line">Mi Bautizo</div>
             <h1 class="anim-element anim-zoom delay-2 title-script">Daniel Emiliano</h1>
             <div class="anim-element anim-fade-up delay-3 line-divider"></div>
@@ -413,6 +419,8 @@
 
         <!-- Familia y Padrinos -->
         <section class="section-block bg-blue">
+            <img src="assets/i3.png" class="deco-icon anim-element anim-zoom delay-1" style="top: 20%; right: -20px; transform: rotate(10deg);" alt="">
+
             <div class="anim-element anim-fade-up delay-1 info-title">Con el amor de mis papás</div>
             <div class="anim-element anim-fade-up delay-2 info-data" style="font-size: 30px;">Siomara Montserrat Ramos López</div>
             <div class="anim-element anim-fade-up delay-3" style="font-family: 'Cinzel', serif; font-size: 20px; color: var(--accent-gold); margin: 15px 0;">&</div>
@@ -428,6 +436,8 @@
 
         <!-- Fecha, Cuenta Atrás y Calendario -->
         <section class="section-block bg-yellow">
+            <img src="assets/i4.png" class="deco-icon anim-element anim-zoom delay-2" style="bottom: 5%; left: -20px; transform: rotate(-20deg);" alt="">
+
             <div class="anim-element anim-fade-up delay-1 info-title" style="letter-spacing: 2px;">Únete a mi celebración el</div>
             <div class="anim-element anim-fade-up delay-2 info-data" style="font-size: 40px; font-weight: 600;">13 de Diciembre</div>
             <div class="anim-element anim-fade-up delay-3 info-data" style="font-size: 24px; color: var(--accent-gold); letter-spacing: 2px;">2026</div>
@@ -456,6 +466,9 @@
 
         <!-- Ubicaciones -->
         <section class="section-block bg-white">
+            <img src="assets/i1.png" class="deco-icon anim-element anim-zoom delay-1" style="top: 5%; left: -25px; transform: rotate(25deg);" alt="">
+            <img src="assets/i2.png" class="deco-icon anim-element anim-zoom delay-3" style="bottom: 25%; right: -25px; transform: rotate(-15deg);" alt="">
+
             <div class="anim-element anim-fade-up delay-1 info-title">Ceremonia Religiosa</div>
             <div class="anim-element anim-fade-up delay-2 info-data">Parroquia de La Esperanza de María</div>
             <div class="anim-element anim-fade-up delay-3 tag-line" style="font-size: 14px; margin: 15px 0; color: var(--text-muted); text-transform: none;">12:45 p.m.</div>
@@ -481,6 +494,8 @@
 
         <!-- Itinerario -->
         <section class="section-block bg-blue">
+            <img src="assets/i3.png" class="deco-icon anim-element anim-zoom delay-1" style="top: 15%; right: -20px; transform: rotate(10deg);" alt="">
+
             <div class="anim-element anim-fade-up delay-1 info-title">Programa del Día</div>
             <div class="anim-element anim-fade-up delay-2 info-data" style="font-size: 34px;">Itinerario</div>
             
@@ -520,6 +535,8 @@
 
         <!-- Dress Code -->
         <section class="section-block bg-white">
+            <img src="assets/i4.png" class="deco-icon anim-element anim-zoom delay-2" style="bottom: -10px; left: -20px; transform: rotate(30deg);" alt="">
+
             <div class="anim-element anim-fade-up delay-1 info-title">Dress Code</div>
             <div class="anim-element anim-fade-up delay-2 info-data" style="font-family: 'Cinzel', serif; font-size: 35px; margin: 25px 0; letter-spacing: 3px; color: var(--accent-blue);">
                 CASUAL
@@ -532,6 +549,8 @@
 
         <!-- Mesa de Regalos -->
         <section class="section-block bg-yellow">
+            <img src="assets/i1.png" class="deco-icon anim-element anim-zoom delay-1" style="top: 10%; left: -25px; transform: rotate(-10deg);" alt="">
+
             <div class="anim-element anim-fade-up delay-1 info-title">Mesa de Regalos</div>
             <svg class="anim-element anim-zoom delay-2" viewBox="0 0 24 24" style="width: 45px; height: 45px; fill: var(--accent-gold); margin: 20px 0; position: relative; z-index: 2;">
                 <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
@@ -551,6 +570,8 @@
 
         <!-- Playlist -->
         <section class="section-block bg-white">
+            <img src="assets/i2.png" class="deco-icon anim-element anim-zoom delay-2" style="bottom: 15%; right: -20px; transform: rotate(15deg);" alt="">
+
             <div class="anim-element anim-fade-up delay-1 info-title">Música</div>
             <div class="anim-element anim-fade-up delay-2 info-data" style="font-size: 34px;">Nuestra Playlist</div>
             <p class="anim-element anim-fade-up delay-3 body-serif" style="margin: 20px auto 40px auto; font-size: 20px;">
@@ -566,6 +587,8 @@
 
         <!-- Galería en Vivo -->
         <section class="section-block bg-blue">
+            <img src="assets/i3.png" class="deco-icon anim-element anim-zoom delay-1" style="top: 10%; left: -20px; transform: rotate(25deg);" alt="">
+
             <div class="anim-element anim-fade-up delay-1 info-title">Momentos</div>
             <div class="anim-element anim-fade-up delay-2 info-data" style="font-size: 34px;">Galería en Vivo</div>
             <p class="anim-element anim-fade-up delay-3 body-serif" style="margin: 25px auto; font-size: 20px;">
@@ -579,6 +602,8 @@
 
         <!-- RSVP, Pases y Mensajes -->
         <section class="section-block bg-white">
+            <img src="assets/i4.png" class="deco-icon anim-element anim-zoom delay-3" style="bottom: 15%; right: -20px; transform: rotate(-15deg);" alt="">
+
             <!-- Tarjeta VIP Oculta -->
             <div id="pases-section" style="display: none; width: 100%;">
                 <div class="anim-element anim-fade-up delay-1 info-title">Acceso al Evento</div>
@@ -638,15 +663,17 @@
 
         <!-- Despedida (Mensaje Final) -->
         <section class="section-block bg-yellow">
+            <img src="assets/i1.png" class="deco-icon anim-element anim-zoom delay-2" style="top: 20%; left: -30px; transform: rotate(10deg);" alt="">
+
             <div class="anim-element anim-zoom delay-1">
-                <svg viewBox="0 0 24 24" style="width: 50px; height: 50px; fill: var(--accent-gold); margin-bottom: 20px;">
+                <svg viewBox="0 0 24 24" style="width: 50px; height: 50px; fill: var(--accent-gold); margin-bottom: 20px; position: relative; z-index: 2;">
                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                 </svg>
             </div>
-            <p class="anim-element anim-fade-up delay-2 body-serif" style="font-size: 24px; color: var(--text-dark);">
+            <p class="anim-element anim-fade-up delay-2 body-serif" style="font-size: 24px; color: var(--text-dark); position: relative; z-index: 2;">
                 "Doy gracias a Dios por darme el don de la vida, a mis papás Montse y Daniel por esperarme con amor y recibirme con alegría; a mis padrinos Rocío y Erick por guiarme en el camino de la luz; y a ti por acompañarme en este hermoso día".
             </p>
-            <div class="anim-element anim-fade-up delay-3 tag-line" style="margin-top: 40px;">¡Gracias por acompañarnos!</div>
+            <div class="anim-element anim-fade-up delay-3 tag-line" style="margin-top: 40px; position: relative; z-index: 2;">¡Gracias por acompañarnos!</div>
         </section>
 
     </main>
@@ -679,7 +706,6 @@
                 let sparkle = document.createElement('div');
                 sparkle.classList.add('sparkle');
                 
-                // Posición aleatoria
                 let top = Math.random() * 100;
                 let left = Math.random() * 100;
                 let size = Math.random() * 10 + 4;
@@ -719,7 +745,7 @@
             }, 1000);
         }
 
-        // --- INTERSECTION OBSERVER (Entradas y Salidas Mágicas) ---
+        // --- INTERSECTION OBSERVER ---
         document.addEventListener("DOMContentLoaded", () => {
             const observerOptions = {
                 root: null,
@@ -732,7 +758,6 @@
                     if (entry.isIntersecting) {
                         entry.target.classList.add('in-view');
                     } else {
-                        // Al salir de la vista, se remueve la clase para que se anime de nuevo al volver (Animación de salida)
                         entry.target.classList.remove('in-view');
                     }
                 });
@@ -749,10 +774,9 @@
         if (parametroPases && !isNaN(parametroPases)) {
             pasesAsignados = parseInt(parametroPases);
         } else {
-            pasesAsignados = 10; // Fallback
+            pasesAsignados = 10; 
         }
 
-        // Mostrar boleto si hay pases en URL
         if (parametroPases && pasesAsignados > 0) {
             const pasesSection = document.getElementById('pases-section');
             if (pasesSection) {
@@ -778,7 +802,7 @@
         });
 
         // --- WHATSAPP ---
-        const WHATSAPP_NUM = "525567664204"; // Número solicitado en el prompt
+        const WHATSAPP_NUM = "525567664204"; 
 
         function sendRSVP() {
             const name = document.getElementById("rsvp-name").value.trim();
@@ -815,7 +839,7 @@
             window.open(`https://wa.me/${WHATSAPP_NUM}?text=${message}`, '_blank');
         }
 
-        // --- CUENTA REGRESIVA (Objetivo: 13/12/2026 12:45 PM) ---
+        // --- CUENTA REGRESIVA ---
         const countdownDate = new Date("December 13, 2026 12:45:00").getTime();
 
         const x = setInterval(function() {
