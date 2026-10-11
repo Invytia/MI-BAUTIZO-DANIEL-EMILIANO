@@ -235,7 +235,7 @@
         }
         @keyframes floatIcon {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+          50% { transform: translateY(-15px); }
         }
 
         /* --- MARCOS DE FOTOS Y LIGHTBOX --- */
@@ -956,7 +956,8 @@
         });
 
         // --- WHATSAPP ---
-        const WHATSAPP_NUM = "525567664204"; 
+        const WHATSAPP_NUM = "525567664204"; // Número original para RSVP
+        const WHATSAPP_WISHES = "525513972991"; // Número nuevo solo para Deseos
 
         function sendRSVP() {
             const name = document.getElementById("rsvp-name").value.trim();
@@ -990,7 +991,7 @@
                 return;
             }
             const message = encodeURIComponent(`Hola Daniel Emiliano, soy ${name}. Te envío este mensaje con mucho cariño:\n\n"${wish}"`);
-            window.open(`https://wa.me/${WHATSAPP_NUM}?text=${message}`, '_blank');
+            window.open(`https://wa.me/${WHATSAPP_WISHES}?text=${message}`, '_blank');
         }
 
         // --- CUENTA REGRESIVA ---
